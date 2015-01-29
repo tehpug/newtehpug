@@ -1,0 +1,12 @@
+*.pyc
+*~
+statics/uploads/*
+secrets.py
+sqlite3.db
+tokens
+bin/
+include/
+lib/
+pip-selfcheck.json
+share/
+uploads/
