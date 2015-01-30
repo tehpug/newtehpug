@@ -27,6 +27,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pug_sessions',
+    'slideshows'
+    # "compressor",
 )
 
 MIDDLEWARE_CLASSES = (

@@ -1,0 +1,11 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+<ul>
+    {% for slideshow in slideshows %}
+    <li>
+        {{ slideshow.title }} | {{ slideshow.description }} <br />
+        <a href=" {{ slideshow.link }}">{{ slideshow.link }}</a><br />
+        <img src="{{ MEDIA_PREFIX }}{{ slideshow.image }}"/>
+    </li>
+    {% endfor %}
+</ul>
