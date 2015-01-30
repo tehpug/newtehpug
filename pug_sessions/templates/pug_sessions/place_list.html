@@ -1,0 +1,11 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+<ul>
+    {% for place in place_list %}
+    <li>
+        {{ place.name }} | {{ place.address }} <br />
+        <a href=" {{ place.link_to_map }} |">View {{ place.name}} in Google map</a><br />
+        <img src="{{ MEDIA_PREFIX }}{{ place.image }}"/>
+    </li>
+    {% endfor %}
+</ul>

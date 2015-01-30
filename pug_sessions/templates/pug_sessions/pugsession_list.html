@@ -1,0 +1,9 @@
+<ul>
+    {% for session in session_list %}
+    <li>
+        <a href="{% url 'sessions:detail' session.id %}">{{ session.title }}</a> |
+        {{ session.description }} | {{ session.place }} |
+        {{ session.start }} | {{ session.end }}
+    </li>
+    {% endfor %}
+</ul>
