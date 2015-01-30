@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    {% for project in project_list %}
+    <li>
+        {{ project.name }} | {{ project.description }} <br />
+        <a href="{{ project.link }}">{{ project.link }}</a><br />
+        <a href="{{ project.source }}">{{ project.source }}</a><br />
+        <a href="{{ project.license.url }}">{{ project.license.name }}</a><br />
+        <ul>
+        {% for technology in project.technologies.all %}
+            <li>{{ technology.name }}</li>
+        {% endfor  %}
+        </url>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

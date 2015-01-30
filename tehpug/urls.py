@@ -9,5 +9,6 @@ urlpatterns = patterns(
     (r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sessions/', include('pug_sessions.urls', namespace='sessions')),
-    url(r'^slideshows/', include('slideshows.urls'))
+    url(r'^slideshows/', include('slideshows.urls')),
+    url(r'^projects/', include('projects.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

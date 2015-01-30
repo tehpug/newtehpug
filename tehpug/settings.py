@@ -27,7 +27,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pug_sessions',
-    'slideshows'
+    'slideshows',
+    'projects',
     # "compressor",
 )
 
@@ -48,6 +49,10 @@ WSGI_APPLICATION = 'tehpug.wsgi.application'
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
     "django.core.context_processors.request",
+)
+
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
 )
 
 # Internationalization
