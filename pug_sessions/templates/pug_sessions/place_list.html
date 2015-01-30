@@ -1,5 +1,5 @@
-{% load static %}
-{% get_media_prefix as MEDIA_PREFIX %}
+{% extends 'base.html' %}
+{% block content %}
 <ul>
     {% for place in place_list %}
     <li>
@@ -9,3 +9,4 @@
     </li>
     {% endfor %}
 </ul>
+{% endblock content %}
