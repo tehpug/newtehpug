@@ -26,7 +26,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'imagekit',
+    'admin_honeypot',
+
     'pug_sessions',
     'slideshows',
     'projects',
