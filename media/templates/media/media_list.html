@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    {% for media in media_list %}
+    <li>
+        {{ media.title }} | {{ media.description }} | {{ media.type }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

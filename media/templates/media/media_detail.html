@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load imagekit %}
+{% block content %}
+<ul>
+    <li>
+        {{ media.title }} | {{ media.description }} | {{ media.type }}
+        <a href={{ media.image.url }}>{% thumbnail '100x50' media.image %}</a>
+    </li>
+</ul>
+{% endblock content %}

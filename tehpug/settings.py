@@ -30,7 +30,8 @@ INSTALLED_APPS = (
     'pug_sessions',
     'slideshows',
     'projects',
-    'shortlinks'
+    'shortlinks',
+    'media',
     # "compressor",
 )
 
