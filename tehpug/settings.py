@@ -30,6 +30,7 @@ INSTALLED_APPS = (
 
     'imagekit',
     'admin_honeypot',
+    'djangosecure',
 
     'pug_sessions',
     'slideshows',
@@ -40,6 +41,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'djangosecure.middleware.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,3 +108,7 @@ LOGGING = {
         },
     },
 }
+
+SECURE_FRAME_DENY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
