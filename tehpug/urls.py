@@ -15,5 +15,6 @@ urlpatterns = patterns(
     url(r'^slideshows/', include('slideshows.urls')),
     url(r'^projects/', include('projects.urls')),
     url(r'^media/', include('media.urls')),
+    url(r'^faq/', include('faq.urls')),
     url(r'^(?P<slug>\w+)$', ShortlinkView.as_view()),  # This must be last item
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
