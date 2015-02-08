@@ -5,6 +5,7 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 from tehpug.utils import set_upload_path
+from pug_sessions.models import PugSession
 
 
 class MediaBase(TimeStampedModel):
@@ -22,16 +23,19 @@ class MediaBase(TimeStampedModel):
 class Image(MediaBase):
     type = models.CharField(default='image', editable=False, max_length=15)
     image = models.ImageField(upload_to=set_upload_path)
+    session = models.ForeignKey(PugSession)
 
 
 class Audio(MediaBase):
     type = models.CharField(default='audio', editable=False, max_length=15)
     link = models.URLField()
+    session = models.ForeignKey(PugSession)
 
 
 class Presentation(MediaBase):
     type = models.CharField(default='presentation', editable=False, max_length=15)
     link = models.URLField()
+    session = models.ForeignKey(PugSession)
     preview = ProcessedImageField(
         upload_to=set_upload_path,
         processors=[ResizeToFill(100, 50)],
@@ -51,6 +55,7 @@ class Video(MediaBase):
     direct_link = models.URLField(blank=True)
     youtube_link = models.URLField(blank=True)
     aparat_link = models.URLField(blank=True)
+    session = models.ForeignKey(PugSession)
 
     def clean(self):
         if not (self.direct_link or self.youtube_link or self.aparat_link):
