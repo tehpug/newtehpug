@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'shortlinks',
     'media',
     'faq',
+    'members'
     # "compressor",
 )
 
