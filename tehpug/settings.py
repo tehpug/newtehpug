@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'imagekit',
     'admin_honeypot',
     'djangosecure',
+    'rest_framework',
 
     'pug_sessions',
     'slideshows',

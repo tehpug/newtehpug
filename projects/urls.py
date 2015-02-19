@@ -1,8 +1,13 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import include, url
+from rest_framework.routers import DefaultRouter
 
 from projects import views
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-)
+router = DefaultRouter()
+router.register(r'licenses', views.LicenseViewSet)
+router.register(r'projects', views.ProjectViewSet)
+router.register(r'technologies', views.TechnologyViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]

@@ -1,10 +1,9 @@
-from django.views import generic
+from rest_framework import viewsets
 
 from slideshows.models import Slideshow
+from slideshows.serializers import SlideshowSerializer
 
 
-class IndexView(generic.ListView):
-    context_object_name = 'slideshows'
-
-    def get_queryset(self):
-        return Slideshow.objects.all().order_by('-created')
+class SlideshowViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Slideshow.objects.all()
+    serializer_class = SlideshowSerializer

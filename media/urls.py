@@ -1,13 +1,14 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import include, url
+from rest_framework.routers import DefaultRouter
 
 from media import views
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', views.MediaListView.as_view(), name='index'),
-    url(                        # One view to rule them all
-        r'^(?P<type>\w+)/(?P<pk>\w+)$',
-        views.MediaDetailView.as_view(),
-        name='detail'
-    ),
-)
+router = DefaultRouter()
+router.register(r'audios', views.AudioViewSet)
+router.register(r'images', views.ImageViewSet)
+router.register(r'presentations', views.PresentationViewSet)
+router.register(r'videos', views.VideoViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]

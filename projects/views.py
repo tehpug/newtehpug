@@ -1,10 +1,19 @@
-from django.views import generic
+from rest_framework import viewsets
 
-from projects.models import Project
+from projects.models import License, Project, Technology
+from projects.serializers import LicenseSerializer, ProjectSerializer, TechnologySerializer
 
 
-class IndexView(generic.ListView):
-    context_object_name = 'project_list'
+class LicenseViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = License.objects.all()
+    serializer_class = LicenseSerializer
 
-    def get_queryset(self):
-        return Project.objects.all().order_by('-created')
+
+class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+
+class TechnologyViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Technology.objects.all()
+    serializer_class = TechnologySerializer

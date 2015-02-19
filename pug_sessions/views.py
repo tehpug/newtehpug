@@ -1,22 +1,14 @@
-from django.views import generic
+from rest_framework import viewsets
 
 from pug_sessions.models import PugSession, Place
+from pug_sessions.serializers import PlaceSerializer, PugSessionSerializer
 
 
-class SessionIndexView(generic.ListView):
-    context_object_name = 'session_list'
-
-    def get_queryset(self):
-        return PugSession.objects.all().order_by('-created')
+class PlaceViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
 
 
-class SessionDetailView(generic.DetailView):
-    model = PugSession
-    context_object_name = 'session'
-
-
-class PlaceIndexView(generic.ListView):
-    context_object_name = 'place_list'
-
-    def get_queryset(self):
-        return Place.objects.all().order_by('-created')
+class SessionViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = PugSession.objects.all()
+    serializer_class = PugSessionSerializer

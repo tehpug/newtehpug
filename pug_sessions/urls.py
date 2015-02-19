@@ -1,10 +1,12 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import include, url
+from rest_framework.routers import DefaultRouter
 
 from pug_sessions import views
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', views.SessionIndexView.as_view(), name='index'),
-    url(r'^(?P<pk>\d+)/$', views.SessionDetailView.as_view(), name='detail'),
-    url(r'^places/$', views.PlaceIndexView.as_view(), name='place')
-)
+router = DefaultRouter()
+router.register(r'places', views.PlaceViewSet)
+router.register(r'sessions', views.SessionViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]

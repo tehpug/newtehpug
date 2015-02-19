@@ -1,7 +1,9 @@
-from django.views import generic
+from rest_framework import viewsets
 
 from faq.models import FAQ
+from faq.serializers import FAQSerializer
 
 
-class FAQListView(generic.ListView):
-    model = FAQ
+class FAQViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = FAQ.objects.all()
+    serializer_class = FAQSerializer

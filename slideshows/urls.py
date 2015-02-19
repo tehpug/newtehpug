@@ -1,8 +1,11 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import include, url
+from rest_framework.routers import DefaultRouter
 
 from slideshows import views
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', views.IndexView.as_view(), name='index'),
-)
+router = DefaultRouter()
+router.register(r'slideshows', views.SlideshowViewSet)
+
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]
