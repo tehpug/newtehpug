@@ -4,6 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from shortlinks.views import ShortlinkView
+from tehpug.views import IndexView
 
 
 urlpatterns = patterns(
@@ -17,5 +18,6 @@ urlpatterns = patterns(
     url(r'^api/media/', include('media.urls')),
     url(r'^api/faq/', include('faq.urls')),
     url(r'^api/members/', include('members.urls')),
+    url(r'^$', IndexView.as_view()),
     url(r'^(?P<slug>\w+)$', ShortlinkView.as_view()),  # This must be last item
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
